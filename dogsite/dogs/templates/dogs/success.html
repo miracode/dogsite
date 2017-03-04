@@ -1,0 +1,13 @@
+{% extends "dogs/base.html" %}
+
+{% block content %}
+<center>
+
+    <h2>Your dog has been created!</h2>
+    <div><img src="{{ dog.photo.url }}" class="lightbox-image"></div>
+    <div><b>Dog</b>: {{ dog.name }}</div>
+    <div><b>Owner</b>: {{ dog.owner }}</div>
+    <p><a href="{% url 'dogs:index' %}">Return Home</a>
+{% endblock %}
+
+

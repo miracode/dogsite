@@ -1,0 +1,14 @@
+
+<div class="grid">
+    <div class="col-2-3">
+        <div class='dog-box' onclick="javascript:lightbox(null, '{% url 'dogs:dog-create' %}');">
+            <div class='add-dog'>+ add your dog</div>
+        </div>
+        {% for dog in object_list %}
+        <div class='dog-box' onclick="javascript:lightbox(null, '{% url 'dogs:dog-detail' pk=dog.pk %}');">
+            <div class='box-thumb'><img src="{{ dog.photo.url }}" class="thumbnail"></div>
+            <div class='box-details'><b>{{ dog.name }}</b> - {{ dog.owner }}</a></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

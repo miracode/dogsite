@@ -1,0 +1,37 @@
+{% extends "dogs/base.html" %}
+
+{% block content %}
+<center>
+{% if dog_names %}
+<h1>Dogs matching <i>{{query}}</i></h1>
+<div class="grid">
+    <div class="col-2-3">
+        {% for dog in dog_names %}
+        <div class='dog-box' onclick="javascript:lightbox(null, '{% url 'dogs:dog-detail' pk=dog.pk %}');">
+            <div class='box-thumb'><img src="{{ dog.photo.url }}" class="thumbnail"></div>
+            <div class='box-details'><b>{{ dog.name }}</b> - {{ dog.owner }}</a></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if owner_names %}
+<h1>Owners matching <i>{{query}}</i></h1>
+<div class="grid">
+    <div class="col-2-3">
+        {% for dog in owner_names %}
+        <div class='dog-box' onclick="javascript:lightbox(null, '{% url 'dogs:dog-detail' pk=dog.pk %}');">
+            <div class='box-thumb'><img src="{{ dog.photo.url }}" class="thumbnail"></div>
+            <div class='box-details'><b>{{ dog.name }}</b> - {{ dog.owner }}</a></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if not dog_names and not owner_names %}
+<p>No results matching your query</p>
+{% endif %}
+</center>
+{% endblock %}

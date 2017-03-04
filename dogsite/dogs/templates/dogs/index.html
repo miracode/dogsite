@@ -1,0 +1,11 @@
+{% extends "dogs/base.html" %}
+
+{% block content %}
+<center>
+<h1>Welcome to the Dog Database</h1>
+<p>Scroll to view dogs or <a href="javascript:lightbox(null, '{% url 'dogs:dog-create' %}');">add your own</a>.</p>
+<p>Use the search tool above to find a dog by its name or owner.</p>
+
+{% include 'dogs/dog_list.html' %}
+
+{% endblock %}

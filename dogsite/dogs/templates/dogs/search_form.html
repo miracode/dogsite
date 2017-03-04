@@ -1,0 +1,9 @@
+{% extends "dogs/base.html" %}
+
+{% block content %}
+{{ message }}
+<form action="{% url 'dogs:search' %}" method="get">
+    <input type="text" name="q">
+    <input type="submit" value="Search">
+</form>
+{% endblock %}
